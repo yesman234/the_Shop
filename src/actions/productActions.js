@@ -6,15 +6,16 @@ import {
 } from "../constants/productConstants";
 
 //on
-export const listProducts = () => async (clutch) => {
+const dispatch = useDispatch(dispatch);
+export const listProducts = () => async (dispatch) => {
 	try {
-		clutch({ type: PRODUCT_LIST_REQUEST });
+		dispatch({ type: PRODUCT_LIST_REQUEST });
 
 		const { data } = await axios.get("/api/products");
 
-		clutch({ type: PRODUCT_LIST_SUCCESS });
+		dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
 	} catch (err) {
-		clutch({
+		dispatch({
 			type: PRODUCT_LIST_FAIL,
 			payload:
 				error.response && error.response.data.message
