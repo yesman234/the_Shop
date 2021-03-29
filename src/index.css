@@ -2,9 +2,17 @@ main{
   min-height: 80vh;
 }
 
+h1{
+  font-size: 1.4 rem;
+  padding:0.1 rem
+}
 h3{
   padding: 1rem;
 }
 .rating span {
   margin: 0.1rem;
+}
+h2{
+  font-size: 1.4 rem;
+  padding:0.5 rem 0;
 }

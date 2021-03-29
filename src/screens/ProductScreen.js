@@ -18,10 +18,13 @@ import { listProductDetails } from "../actions/productActions";
 
 const ProductScreen = ({ history, match }) => {
 	//assigning product ids to Product var or obj haha
-	const dispatch = useDispatch();
 	const [qty, setQty] = useState(1);
+
+	const dispatch = useDispatch();
+
 	const productDetails = useSelector((state) => state.productDetails);
 	const { error, product, loading } = productDetails;
+
 	useEffect(() => {
 		dispatch(listProductDetails(match.params.id));
 	}, [dispatch, match]);
@@ -29,6 +32,9 @@ const ProductScreen = ({ history, match }) => {
 	const addToCartHandler = () => {
 		history.push(`/cart/${match.params.id}?qty=${qty}`);
 	};
+	const removeFromCartHandler=(id)=>{
+		console.log('gone')
+	}
 
 	return (
 		<>
@@ -96,6 +102,7 @@ const ProductScreen = ({ history, match }) => {
 													))}
 												</Form.Control>
 											</Col>
+											<Col md={2}><Button type='button' variant='light' onClick={()=> removeFromCartHandler(item.product)}></Button></Col>
 										</Row>
 									</ListGroup.Item>
 								)}
