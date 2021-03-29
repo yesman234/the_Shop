@@ -32,9 +32,9 @@ const ProductScreen = ({ history, match }) => {
 	const addToCartHandler = () => {
 		history.push(`/cart/${match.params.id}?qty=${qty}`);
 	};
-	const removeFromCartHandler=(id)=>{
-		console.log('gone')
-	}
+	const removeFromCartHandler = (id) => {
+		console.log("gone");
+	};
 
 	return (
 		<>
@@ -102,7 +102,14 @@ const ProductScreen = ({ history, match }) => {
 													))}
 												</Form.Control>
 											</Col>
-											<Col md={2}><Button type='button' variant='light' onClick={()=> removeFromCartHandler(item.product)}></Button></Col>
+											<Col md={2}>
+												<Button
+													type='button'
+													variant='light'
+													onClick={() =>
+														removeFromCartHandler(product)
+													}></Button>
+											</Col>
 										</Row>
 									</ListGroup.Item>
 								)}
